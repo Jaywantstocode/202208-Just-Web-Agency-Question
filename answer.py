@@ -26,15 +26,12 @@ class Processor():
                     self.stars[star]["ratings"].append(float(movie["rating"]))
                     self.stars[star]["Movies"] += 1
         
-        # print(self.stars)
 
     def print(self) -> str:
         """Print stars in an ascending order by the total number of movies they appeared in,
         yet only stars who appeared in equal or more than 2 movies.
         """
-        print(self.stars.items())
         for actor in sorted(self.stars.items(), key=lambda x: x[1]["Movies"]):
-            # print(actor)
             if actor[1]["Movies"] < 2:
                 continue
             avg_rating = round(sum(actor[1]["ratings"])/actor[1]["Movies"], 2)
